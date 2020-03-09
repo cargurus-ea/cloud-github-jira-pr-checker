@@ -97,9 +97,9 @@ jobs:
   jira:
     runs-on: ubuntu-latest
     steps:
-      - uses: alaplanteCG/cloud-pr-checker@v1
+      - uses: cargurus-ea/cloud-github-jira-pr-checker@v1
         with:
-          jira_url: "alaplante.atlassian.net"
+          jira_url: "test.atlassian.net"
           jira_consumer_key: ${{ secrets.JIRA_CONSUMER_KEY }}
           jira_access_token: ${{ secrets.JIRA_ACCESS_TOKEN }}
           jira_token_secret: ${{ secrets.JIRA_TOKEN_SECRET }}
