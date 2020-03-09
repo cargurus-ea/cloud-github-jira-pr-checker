@@ -1,0 +1,15 @@
+name: "unit-test"
+on:
+  pull_request:
+    branches:
+      - master
+      - "releases/*"
+  push:
+jobs:
+  # unit tests
+  units:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: npm ci
+      - run: npm test

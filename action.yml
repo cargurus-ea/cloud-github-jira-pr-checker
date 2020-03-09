@@ -1,0 +1,43 @@
+name: "Jira Issue Check"
+description: "Check for a specified Jira issue."
+inputs:
+    jira_url:
+        description: "url of jira instance"
+        required: true
+    jira_consumer_key:
+        description: "jira consumer key"
+        required: true
+    jira_access_token:
+        description: "jira OAuth access token"
+        required: true
+    jira_token_secret:
+        description: "jira OAuth access token secret"
+        required: true
+    jira_private_key:
+        description: "jira OAuth private key"
+        required: true
+    jira_release_state:
+        description: "the jira state an issue must be in to be considered ready to release"
+        required: true
+        default: "Ready for Release"
+    project_pattern:
+        description: "regex pattern used to identify projects"
+        required: true
+        default: '[A-Za-z][A-Za-z]*-\d\d*'
+    sox_check:
+        description: "signifies if the action should check for sox compliancy"
+        required: true
+        default: false
+    github_token:
+        description: "github token to access account"
+        required: true
+outputs:
+    issue_exists: # output will be available to future steps
+        description: "If the Jira issue exists"
+    correct_state:
+        description: "If the Jira issue is in the correct state"
+    sox_compliant:
+        description: "If the Jira issue is SOX compliant"
+runs:
+    using: "node12"
+    main: "dist/index.js"

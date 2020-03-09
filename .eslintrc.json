@@ -1,0 +1,7 @@
+{
+    "extends": ["cargurus-base", "prettier"],
+    "plugins": ["prettier"],
+    "rules": {
+        "prettier/prettier": "error"
+    }
+}
