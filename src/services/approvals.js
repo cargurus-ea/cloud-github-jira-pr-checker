@@ -5,6 +5,7 @@
  */
 
 const utilities = require("../services/utilities.js");
+const core = require("@actions/core");
 
 /*
  * App Variables
@@ -106,6 +107,15 @@ async function check(jiraKey) {
                 for (let i = 0; i < approvalsArray.length; i += 1) {
                     if (approvalsArray[i].value === true) {
                         console.log(`${approvalsArray[i].name}: Passed`);
+                        if (approvalsArray[i].name === "Existence Test") {
+                            utilities.postReview(
+                                "Link to associated Jira: " +
+                                    core.getInput("jira_url") +
+                                    "/browse/" +
+                                    jiraKey,
+                                "COMMENT",
+                            );
+                        }
                     } else {
                         console.log(`${approvalsArray[i].name}: Failed`);
                         if (errorCode === null)

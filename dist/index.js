@@ -27013,6 +27013,7 @@ function regex(str) {
  */
 
 const utilities = __webpack_require__(498);
+const core = __webpack_require__(470);
 
 /*
  * App Variables
@@ -27114,6 +27115,15 @@ async function check(jiraKey) {
                 for (let i = 0; i < approvalsArray.length; i += 1) {
                     if (approvalsArray[i].value === true) {
                         console.log(`${approvalsArray[i].name}: Passed`);
+                        if (approvalsArray[i].name === "Existence Test") {
+                            utilities.postReview(
+                                "Link to associated Jira: " +
+                                    core.getInput("jira_url") +
+                                    "/browse/" +
+                                    jiraKey,
+                                "COMMENT",
+                            );
+                        }
                     } else {
                         console.log(`${approvalsArray[i].name}: Failed`);
                         if (errorCode === null)
