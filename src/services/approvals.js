@@ -108,11 +108,16 @@ async function check(jiraKey) {
                     if (approvalsArray[i].value === true) {
                         console.log(`${approvalsArray[i].name}: Passed`);
                         if (approvalsArray[i].name === "Existence Test") {
+                            let jiraLink =
+                                core.getInput("jira_url") +
+                                "/browse/" +
+                                jiraKey;
                             utilities.postReview(
-                                "Link to associated Jira: " +
-                                    core.getInput("jira_url") +
-                                    "/browse/" +
-                                    jiraKey,
+                                "Link to associated Jira: [" +
+                                    jiraLink +
+                                    "](" +
+                                    jiraLink +
+                                    ")",
                                 "COMMENT",
                             );
                         }
