@@ -27121,9 +27121,9 @@ async function check(jiraKey) {
                                 "/browse/" +
                                 jiraKey;
                             utilities.postReview(
-                                "Link to associated Jira: [" +
+                                "Link to associated Jira: [https://" +
                                     jiraLink +
-                                    "](" +
+                                    "](https://" +
                                     jiraLink +
                                     ")",
                                 "COMMENT",
