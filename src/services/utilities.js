@@ -205,3 +205,4 @@ exports.getPullRequestName = getPullRequestName;
 exports.scanPullRequestName = scanPullRequestName;
 exports.getProjectKey = getProjectKey;
 exports.retrieveIssueObject = retrieveIssueObject;
+exports.postReview = postReview;
