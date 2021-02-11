@@ -1,8 +1,8 @@
 # GitHub Action: Jira PR Checker
-![unit-test](https://github.com/alaplanteCG/cloud-pr-checker/workflows/unit-test/badge.svg)
+![unit-test](https://github.com/cargurus-ea/cloud-pr-checker/workflows/unit-test/badge.svg)
 <img src="https://img.shields.io/badge/eslint--plugin-cargurus--base-orange" />
 <img src="https://img.shields.io/badge/prod--version-v1-blue" />
-<img src="https://img.shields.io/github/v/release/alaplanteCG/cloud-pr-checker?include_prereleases" />
+<img src="https://img.shields.io/github/v/release/cargurus-ea/cloud-pr-checker?include_prereleases" />
 
 This simple action scans a pull request name for an associated Jira Issue project key and then using the npm package jira-connector checks the provided Jira instance for the existence of the given Jira Issue. If the Issue is found the release state is then compared against the provided Jira release state. If each of these checks pass, the PR is approved and a PR review approving the merge is created. If any of the checks fail, a PR review requesting the specific changes is created and the merge is blocked.
 
@@ -109,7 +109,7 @@ jobs:
 
 To add this action to your repository, create the following file within your repository: ```.github/workflows/jira_pr_checker.yml```.
 
-Once the file has been created, copy the above example code into it. Change the `jira_url` input to your atlassian url. Create secrets within your repository corresponding to each Authenticatation input. 
+Once the file has been created, copy the above example code into it. Change the `jira_url` input to your atlassian url. Create secrets within your repository corresponding to each Authentication input. 
 
 Create a new branch, add a test file to that branch. Create a new pull request with a valid project key (or not) in the title, observe. To re-run the action, update your test file and push to GH or edit the PR in some way.
 
